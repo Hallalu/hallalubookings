@@ -360,6 +360,52 @@ body.tpl-portrait .hero{padding-top:10px}
   .btn:hover,.svc:hover,.fab:hover{transform:none}
 }
 @media(max-width:560px){.muted,.live-chip{display:none}.mini-stats{grid-template-columns:1fr 1fr}}
+
+/* ============================================================
+   CONTACT + AI ASSISTANT  (fills the bottom white space)
+   ============================================================ */
+.help{margin-top:96px}
+.help-grid{display:grid;gap:26px}
+@media(min-width:900px){.help-grid{grid-template-columns:5fr 7fr;gap:44px;align-items:stretch}}
+.help-side{display:flex;flex-direction:column;justify-content:center}
+.help-btns{margin-top:24px;display:flex;flex-direction:column;gap:12px;max-width:380px}
+.help-btn{display:flex;align-items:center;gap:14px;border:1px solid var(--line);background:var(--surface);border-radius:16px;padding:13px 16px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow-sm);transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease)}
+.help-btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.help-ico{height:44px;width:44px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;color:#fff}
+.help-btn.wa .help-ico{background:#25D366}
+.help-btn.wa:hover{border-color:#25D366}
+.help-btn.em .help-ico{background:var(--ink)}
+.help-btn .ht{min-width:0}
+.help-btn b{display:block;font-size:14px;line-height:1.2}
+.help-btn small{display:block;font-size:12px;color:var(--ink-faint);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.help-btn .go{margin-left:auto;color:var(--ink-faint);flex-shrink:0}
+.help-hours{margin-top:18px;font-size:12px;color:var(--ink-faint);display:flex;align-items:center;gap:7px}
+
+.help-chat{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-lg);overflow:hidden;min-height:400px}
+.chat-head{display:flex;align-items:center;gap:12px;padding:15px 18px;border-bottom:1px solid var(--line)}
+.chat-orb{height:40px;width:40px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;color:#fff;background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 45%,var(--gold)))}
+.chat-title{font-weight:600;font-size:14.5px}
+.chat-sub{font-size:11.5px;color:var(--ink-faint);margin-top:1px}
+.chat-live{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.08em}
+.chat-thread{flex:1;padding:16px 18px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;max-height:320px}
+.bubble{max-width:84%;padding:10px 13px;border-radius:16px;font-size:13.5px;line-height:1.5;white-space:pre-wrap;word-break:break-word;animation:fadeUp .3s var(--ease)}
+.bubble.ai{align-self:flex-start;background:var(--surface-2);color:var(--ink);border-bottom-left-radius:5px}
+.bubble.me{align-self:flex-end;background:var(--accent);color:var(--accent-ink);border-bottom-right-radius:5px}
+.bubble.typing{display:inline-flex;gap:5px;align-items:center;padding:13px 15px}
+.bubble.typing i{height:6px;width:6px;border-radius:50%;background:var(--ink-faint);animation:blink 1.2s infinite}
+.bubble.typing i:nth-child(2){animation-delay:.2s}.bubble.typing i:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,60%,100%{opacity:.25}30%{opacity:1}}
+.chat-sugg{display:flex;gap:7px;flex-wrap:wrap;padding:2px 18px 12px}
+.chat-chip{border:1px solid var(--line);background:var(--surface);color:var(--ink-soft);border-radius:999px;padding:6px 12px;font-size:12px;cursor:pointer;transition:color .2s,border-color .2s,transform .2s}
+.chat-chip:hover{color:var(--ink);border-color:color-mix(in srgb,var(--ink) 22%,transparent);transform:translateY(-1px)}
+.chat-input{display:flex;gap:9px;padding:12px 14px;border-top:1px solid var(--line)}
+.chat-input input{flex:1;height:44px;border:1px solid var(--line);background:var(--surface-2);border-radius:999px;padding:0 16px;font-size:14px;outline:none;transition:border-color .2s}
+.chat-input input:focus{border-color:var(--accent)}
+.chat-send{height:44px;width:44px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;flex-shrink:0;transition:transform .2s}
+.chat-send:hover{transform:scale(1.06)}
+.chat-send:disabled{opacity:.5;cursor:default;transform:none}
+.chat-foot{font-size:10.5px;color:var(--ink-faint);text-align:center;padding:0 14px 12px}
+@media (prefers-reduced-motion:reduce){.bubble,.bubble.typing i{animation:none}.help-btn:hover,.chat-send:hover,.chat-chip:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -636,6 +682,45 @@ body.tpl-portrait .hero{padding-top:10px}
           </ul>
           <div style="margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:11px;font-size:11px" data-edit>Custom domain • elenamarlowe.studio — white-label, no marketplace branding</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT + AI ASSISTANT -->
+  <section class="sec help">
+    <div class="help-grid">
+      <div class="help-side reveal">
+        <div class="eyebrow">Have a question<span class="dot" style="color:var(--accent)">?</span></div>
+        <h3 class="h3" data-edit>Message us — we reply fast.</h3>
+        <p class="p" data-edit>Prefer a human? Reach us directly, or ask the assistant on the right for instant answers on services, prices and times.</p>
+        <div class="help-btns">
+          <a class="help-btn wa" id="waBtn" href="#" target="_blank" rel="noreferrer">
+            <span class="help-ico"><svg viewBox="0 0 24 24" width="21" height="21" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.8c2.16 0 4.19.84 5.72 2.37a8.04 8.04 0 0 1 2.37 5.72c0 4.47-3.64 8.11-8.11 8.11-1.53 0-3.02-.43-4.31-1.24l-.31-.19-3.2.84.85-3.12-.2-.32a8.06 8.06 0 0 1-1.24-4.31c.01-4.47 3.65-8.11 8.13-8.11Zm4.68 11.53c-.25-.13-1.48-.73-1.71-.81-.23-.08-.4-.13-.56.13-.16.25-.64.81-.79.98-.15.16-.29.18-.54.06-.25-.13-1.06-.39-2.02-1.24-.75-.67-1.25-1.49-1.4-1.74-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43l-.48-.01a.92.92 0 0 0-.67.31c-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.6c.13.16 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.48-.6 1.69-1.19.21-.58.21-1.08.15-1.19-.06-.11-.23-.18-.48-.31Z"/></svg></span>
+            <span class="ht"><b>WhatsApp</b><small data-edit id="waNum">+44 7700 900000</small></span>
+            <svg class="go svg sm" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg>
+          </a>
+          <a class="help-btn em" id="emBtn" href="#">
+            <span class="help-ico"><svg class="svg" viewBox="0 0 24 24" style="width:19px;height:19px"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+            <span class="ht"><b>Email</b><small data-edit id="emAddr">hello@elenamarlowe.studio</small></span>
+            <svg class="go svg sm" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg>
+          </a>
+        </div>
+        <div class="help-hours"><svg class="svg sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg> <span data-edit id="helpHours">Mon–Sat · 9am–6pm · Marylebone</span></div>
+      </div>
+
+      <div class="help-chat reveal" data-delay="1">
+        <div class="chat-head">
+          <span class="chat-orb"><svg class="svg" viewBox="0 0 24 24" style="width:20px;height:20px"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8z"/></svg></span>
+          <div><div class="chat-title" data-edit>Ask our assistant</div><div class="chat-sub">Instant answers on services, prices &amp; times</div></div>
+          <span class="chat-live"><span class="dot"></span> AI</span>
+        </div>
+        <div class="chat-thread" id="chatThread"></div>
+        <div class="chat-sugg" id="chatSugg"></div>
+        <form class="chat-input" id="chatForm" autocomplete="off">
+          <input id="chatQ" placeholder="Ask anything — e.g. how much is a facial?" aria-label="Ask the assistant" />
+          <button type="submit" class="chat-send" id="chatSend" aria-label="Send"><svg class="svg sm" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></button>
+        </form>
+        <div class="chat-foot">AI can make mistakes — confirm details before your visit.</div>
       </div>
     </div>
   </section>
@@ -955,6 +1040,7 @@ function syncEdits(){
   });
   if(state.service){ const cur=services.find(x=>x.id===state.service.id); if(cur)state.service=cur; }
   updateSummary();
+  syncContacts(); renderChatSugg();
   const nm=$("#proName").textContent.trim();
   $("#cName") && (document.title = nm+" — Booking");
 }
@@ -1045,12 +1131,12 @@ function save(){
       avatar:(av&&av.src.startsWith("data:"))?av.src:null,
     };
     document.querySelectorAll("[data-edit]").forEach((el,i)=>{ data.texts[i]=el.innerHTML; });
-    localStorage.setItem("bookingPageV3",JSON.stringify(data));
+    localStorage.setItem("bookingPageV4",JSON.stringify(data));
   }catch(e){}
 }
 function load(){
   try{
-    const raw=localStorage.getItem("bookingPageV3"); if(!raw)return;
+    const raw=localStorage.getItem("bookingPageV4"); if(!raw)return;
     const d=JSON.parse(raw);
     if(d.services)services=d.services;
     if(d.deposit)state.deposit=d.deposit; state.service=services[0];
@@ -1069,12 +1155,105 @@ function load(){
 }
 
 /* =====================================================================
+   CONTACT + AI ASSISTANT
+   ===================================================================== */
+let chatHistory = [];
+function contactCtx(){
+  const txt = (id) => document.getElementById(id)?.textContent.trim() || "";
+  return {
+    name: $("#proName")?.textContent.trim() || "our studio",
+    tagline: document.querySelector(".lede")?.textContent.trim() || "",
+    services: services.map((s) => ({ name: s.name, price: CURRENCY + s.price, duration: s.duration, description: s.desc, outcome: s.outcome })),
+    hours: txt("helpHours"),
+    location: (document.querySelector(".loc-note")?.textContent || "").replace(/\s+/g, " ").trim(),
+    policies: [...document.querySelectorAll(".policy li")].map((li) => li.textContent.trim()),
+    whatsapp: txt("waNum"),
+    email: txt("emAddr"),
+  };
+}
+function chatAdd(role, text){
+  const t = $("#chatThread"); if(!t) return;
+  const b = document.createElement("div");
+  b.className = "bubble " + (role === "user" ? "me" : "ai");
+  b.textContent = text;
+  t.appendChild(b); t.scrollTop = t.scrollHeight;
+  return b;
+}
+function chatTyping(){
+  const t = $("#chatThread");
+  const b = document.createElement("div"); b.className = "bubble ai typing";
+  b.innerHTML = "<i></i><i></i><i></i>";
+  t.appendChild(b); t.scrollTop = t.scrollHeight; return b;
+}
+function localAnswer(q){
+  const s = q.toLowerCase();
+  const wa = $("#waNum")?.textContent.trim(), em = $("#emAddr")?.textContent.trim();
+  if(/price|cost|how much|charge|fee|rate|\bpay\b|£|\$|€/.test(s))
+    return "Here’s what we offer:\n" + services.map((x) => `• ${x.name} — ${CURRENCY}${x.price} (${x.duration})`).join("\n") + `\n\nTap “Reserve My Spot” to book, or WhatsApp ${wa}.`;
+  if(/hour|open|close|time|when|today|availab/.test(s))
+    return `We’re open ${$("#helpHours")?.textContent.trim() || "most days"}. Tap “Reserve My Spot” to see live times and book in under a minute.`;
+  if(/where|location|address|park|find you|direction|studio/.test(s))
+    return (document.querySelector(".loc-note")?.textContent.replace(/\s+/g, " ").trim() || "We’ll share the address once you book.") + `. Message us on WhatsApp ${wa} for directions.`;
+  if(/book|reserve|appoint|schedule|slot/.test(s))
+    return `Easy — tap “Reserve My Spot”, choose a service, pick a time, and confirm. It takes under a minute.`;
+  if(/deposit|refund|cancel|resched|no.?show|policy/.test(s)){
+    const p = [...document.querySelectorAll(".policy li")].map((li) => "• " + li.textContent.trim());
+    return p.length ? "Our policies:\n" + p.join("\n") : `Message us on WhatsApp ${wa} and we’ll explain our booking policy.`;
+  }
+  return `I can’t answer that one just now — please WhatsApp us at ${wa} or email ${em} and we’ll reply fast.`;
+}
+async function chatAsk(q){
+  q = (q || "").trim(); if(!q) return;
+  chatAdd("user", q); chatHistory.push({ role: "user", content: q });
+  $("#chatQ").value = ""; $("#chatSend").disabled = true;
+  const typing = chatTyping();
+  let reply;
+  try{
+    const ctrl = new AbortController(); const to = setTimeout(() => ctrl.abort(), 16000);
+    const r = await fetch("/api/chat", { method: "POST", headers: { "Content-Type": "application/json" }, signal: ctrl.signal,
+      body: JSON.stringify({ messages: chatHistory.slice(-10), context: contactCtx() }) });
+    clearTimeout(to);
+    const d = await r.json().catch(() => ({}));
+    reply = (d && d.reply && d.reply.trim()) ? d.reply.trim() : localAnswer(q);
+  }catch(e){
+    reply = localAnswer(q);
+  }
+  typing.remove();
+  chatAdd("assistant", reply); chatHistory.push({ role: "assistant", content: reply });
+  $("#chatSend").disabled = false;
+}
+function renderChatSugg(){
+  const el = $("#chatSugg"); if(!el) return; el.innerHTML = "";
+  const top = services[0]?.name || "your services";
+  ["How much is the " + top + "?", "What are your opening hours?", "Where are you based?", "How do I book?"].forEach((q) => {
+    const b = document.createElement("button"); b.type = "button"; b.className = "chat-chip"; b.textContent = q;
+    b.addEventListener("click", () => chatAsk(q));
+    el.appendChild(b);
+  });
+}
+function chatGreet(){
+  if($("#chatThread")?.children.length) return;
+  const nm = ($("#proName")?.textContent.trim().split(" ")[0]) || "our";
+  chatAdd("assistant", `Hi! I’m ${nm}’s assistant 👋 Ask me about services, prices, hours or how to book — or reach a human on WhatsApp any time.`);
+}
+function syncContacts(){
+  const digits = ($("#waNum")?.textContent || "").replace(/[^\d]/g, "");
+  const who = $("#proName")?.textContent.trim() || "";
+  const waMsg = encodeURIComponent(`Hi ${who} — I have a question about booking.`);
+  const wa = $("#waBtn"); if(wa) wa.href = digits ? `https://wa.me/${digits}?text=${waMsg}` : "#";
+  const em = ($("#emAddr")?.textContent || "").trim(); const emB = $("#emBtn");
+  if(emB) emB.href = em ? `mailto:${em}?subject=${encodeURIComponent("Question about booking")}` : "#";
+}
+$("#chatForm")?.addEventListener("submit", (e) => { e.preventDefault(); chatAsk($("#chatQ").value); });
+
+/* =====================================================================
    INIT
    ===================================================================== */
 renderServices(); renderFaq(); renderGallery(); renderDeposits(); renderThemes(); renderLayouts(); renderCalendar(); updateSummary();
 const savedTexts=load();
 renderServices(); renderDeposits(); applyLayout(layout,false); updateSummary();
 if(savedTexts){ document.querySelectorAll("[data-edit]").forEach((el,i)=>{ if(savedTexts[i]!==undefined)el.innerHTML=savedTexts[i]; }); }
+renderChatSugg(); chatGreet(); syncContacts();
 observeReveals();
 // mark first theme selected
 document.querySelectorAll(".theme-opt")[0]?.classList.add("sel");
